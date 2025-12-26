@@ -1,0 +1,12 @@
+in total we have 4 kinds of schema evolution mode:
+none - which doesn't eveolve the schema, job will fail once schema changes on any upcoming new files.
+failOnNewColumns - if new columns added (file3.csv), job will keep failing if we keep running again & again.
+recue - new columns, data type mismatch will be visivle under _rescued_data columns.
+addOnNewColumns - default mode
+
+.option("cloudFiles.schemaEvolutionMode","addOnNewColumns")
+.option("cloudFiles.schemaEvolutionMode","rescue")
+.option("cloudFiles.schemaEvolutionMode","failOnNewColumns")
+.option("cloudFiles.schemaEvolutionMode","none")
+
+all the tables are managed table ( type: Managed), data Source: delta
