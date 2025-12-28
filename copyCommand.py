@@ -85,7 +85,8 @@ FROM (
     CAST(order_id AS INT) AS order_id,
     CAST(order_date AS DATE) AS order_date,
     CAST(customer_id AS INT) AS customer_id,
-    order_status
+    order_status,
+    order_amount
   FROM '/Volumes/workspace/default/my_volume/input/file3.json'
 )
 FILEFORMAT = JSON;
